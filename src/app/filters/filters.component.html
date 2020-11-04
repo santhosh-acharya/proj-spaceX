@@ -1,0 +1,58 @@
+<div class="spacex-filters" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center" fxLayout.lt-sm="column">
+    <ng-container>
+          <div class="filter-heading">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Launch Year
+                  </mat-panel-title>
+                  </mat-expansion-panel-header>
+                <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+                  <mat-slider thumbLabel class="example-margin"  tickInterval="1"  min="2006" (change)="filterMissions($event,'launch_year')"
+                  max="2020"></mat-slider>                
+                </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Successful Launch
+                  </mat-panel-title>
+                 
+                </mat-expansion-panel-header>
+                <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+                  <div class="btn-group" data-toggle="buttons" fxFlex="0 1 calc(50% - 20px)">
+                    <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['launch_success']}"
+                      class="btn btn-primary form-check-label">
+                      <input type="radio" (change)="filterMissions($event,'launch_success')" autocomplete="off"
+                        class="form-check-input" [checked]="selectedFilters['launch_success']">
+                      True
+                    </label>
+                  </div>
+                  <div class="btn-group" data-toggle="buttons" fxFlex="0 1 calc(50% - 20px)">
+                    <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['launch_success'] === false}"
+                      class="btn btn-primary form-check-label">
+                      <input type="radio" (change)="filterMissions($event,'launch_success')" autocomplete="off"
+                        class="form-check-input" [checked]="selectedFilters['launch_success'] === false">
+                      False
+                    </label>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                 Landing
+            </mat-panel-title>
+         
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+
+            <mat-slide-toggle (change)="filterMissions($event,'land_success')" >Successful</mat-slide-toggle>
+         
+          </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+    </ng-container>
+  </div>
